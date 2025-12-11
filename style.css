@@ -1,0 +1,407 @@
+/* ==================== Reset & Base Styles ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==================== Header ==================== */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.header-text {
+  flex: 1;
+  text-align: left;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.95rem;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-info a:hover {
+  opacity: 0.8;
+}
+
+.separator {
+  opacity: 0.7;
+}
+
+/* ==================== Main Content ==================== */
+main {
+  padding: 60px 20px;
+}
+
+.section {
+  background: white;
+  margin-bottom: 40px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #667eea;
+  display: inline-block;
+}
+
+/* ==================== Professional Summary ==================== */
+.summary-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+/* ==================== Skills ==================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.skill-category {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.15);
+}
+
+.skill-category h3 {
+  color: #667eea;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.skill-category p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==================== Experience ==================== */
+.experience-item {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.job-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.date {
+  font-size: 0.95rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.company {
+  font-size: 1.05rem;
+  color: #764ba2;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.achievements {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.achievements li {
+  padding: 8px 0 8px 25px;
+  color: #555;
+  position: relative;
+  line-height: 1.7;
+}
+
+.achievements li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* ==================== Education ==================== */
+.education-item {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.education-header h3 {
+  font-size: 1.2rem;
+  color: #667eea;
+  font-weight: 700;
+}
+
+.cgpa {
+  color: #764ba2;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.university {
+  color: #666;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.coursework {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ==================== Certifications ==================== */
+.certification-item {
+  background: #f0f4ff;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #764ba2;
+  font-size: 1.05rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.certification-item p {
+  margin: 0;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+}
+
+.footer p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ==================== Animations ==================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-text {
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-title {
+    font-size: 1.1rem;
+  }
+
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .achievements li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+}
