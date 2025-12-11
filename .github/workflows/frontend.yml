@@ -6,8 +6,8 @@ on:
   workflow_dispatch: # Allows manual trigger
 
 env:
-  AZURE_STORAGE_ACCOUNT: "resumewebsiteyourname"
-  RESOURCE_GROUP: "resume-rg"
+  AZURE_STORAGE_ACCOUNT: "sairesumestorage"
+  RESOURCE_GROUP: "sai_portfolio"
 
 jobs:
   deploy:
