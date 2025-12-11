@@ -22,13 +22,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Clear existing files (optional)
-        continue-on-error: true
-        run: |
-          az storage blob delete-batch \
-            --account-name ${{ env.AZURE_STORAGE_ACCOUNT }} \
-            --source '$web' \
-            --auth-mode login
       - name: "Upload HTML files"
         run: |
           az storage blob upload-batch \
