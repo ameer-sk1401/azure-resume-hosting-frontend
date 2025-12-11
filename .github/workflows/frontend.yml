@@ -1,0 +1,46 @@
+name: Deploy Frontend to Azure Storage
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Allows manual trigger
+
+env:
+  AZURE_STORAGE_ACCOUNT: "sairesumestorage"
+  RESOURCE_GROUP: "sai_portfolio"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Clear existing files (optional)
+        continue-on-error: true
+        run: |
+          az storage blob delete-batch \
+            --account-name ${{ env.AZURE_STORAGE_ACCOUNT }} \
+            --source '$web' \
+            --auth-mode login
+
+      - name: Upload files to Azure Storage
+        run: |
+          az storage blob upload-batch \
+            --account-name ${{ env.AZURE_STORAGE_ACCOUNT }} \
+            --destination '$web' \
+            --source . \
+            --overwrite \
+            --auth-mode login \
+            --pattern "*.html" "*.css" "*.js" "*.png" "*.jpg" "*.ico"
+
+      - name: Display website URL
+        run: |
+          echo "Website deployed successfully!"
+          echo "URL: https://${{ env.AZURE_STORAGE_ACCOUNT }}.z13.web.core.windows.net"
